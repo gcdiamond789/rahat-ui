@@ -10,13 +10,19 @@ on:
       tag_suffix:
         description: "Tag suffix (e.g., test-load)"
         required: true
-        default: "test-load"
+        default: "main"
         type: string
       vault_secret_path:
         description: "Vault secret path (e.g., github/data/rahat/rahat-ui/demo/aa/redcross)"
         required: true
-        default: "github/data/rahat/rahat-ui/dev/aa/dev-qa"
-        type: string
+        type: choice
+        options:
+          - "github/data/rahat/rahat-ui/dev/aa/dev-qa"
+          - "github/data/rahat/rahat-ui/dev/aa/stellar"
+          - "github/data/rahat/rahat-ui/dev/aa/unicef"
+          - "github/data/rahat/rahat-ui/dev/el/crm"
+          - "github/data/rahat/rahat-ui/dev/unicef/aidlink"
+        
       vault_secret_key:
         description: "Key within the Vault secret that holds the env (e.g., rahat-ui)"
         required: true
